@@ -5,7 +5,7 @@ AC_PREREQ(2.59)
 AC_INIT([honeytrap], [1.1.0], [tillmann.werner@gmx.de])
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE(honeytrap,1.1.0)
+AM_INIT_AUTOMAKE
 
 # Checks for programs.
 AC_PROG_CC

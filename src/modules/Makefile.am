@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign no-dependencies
 
 AM_CFLAGS=-Wall -Werror
 
-INCLUDES = -I../
+AM_CPPFLAGS= -I../
 
 SUBDIRS=
 

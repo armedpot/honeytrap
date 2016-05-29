@@ -42,10 +42,6 @@ enum lcfg_status      lcfg_parser_accept(struct lcfg_parser *, lcfg_visitor_func
 void                  lcfg_parser_delete(struct lcfg_parser *);
 
 
-extern inline const char *lcfg_string_cstr(struct lcfg_string *);
-extern inline unsigned int lcfg_string_len(struct lcfg_string *);
-
-
 int lcfg_string_set(struct lcfg_string *s, const char *cstr) {
 	lcfg_string_trunc(s, 0);
 	return lcfg_string_cat_cstr(s, cstr);

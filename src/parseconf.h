@@ -70,12 +70,12 @@ enum lcfg_status lcfg_accept(struct lcfg *c, lcfg_visitor_function fn, void *use
 void lcfg_delete(struct lcfg *c);
 struct lcfg *parse_config_file(const char *filename);
 
-inline const char *lcfg_string_cstr(struct lcfg_string *s) {
+static inline const char *lcfg_string_cstr(struct lcfg_string *s) {
 	s->str[s->size] = '\0';
 	return s->str;
 }
 
-inline unsigned int lcfg_string_len(struct lcfg_string *s) {
+static inline unsigned int lcfg_string_len(struct lcfg_string *s) {
 	return s->size;
 }
 

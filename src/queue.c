@@ -26,12 +26,6 @@
 #include "queue.h"
 
 
-extern inline qelem *queue_prepend(queue *q, void *data);
-extern inline qelem *queue_append(queue *q, void *data);
-extern inline qelem *queue_cuthead(queue *q);
-extern inline qelem *queue_cuttail(queue *q);
-
-
 qelem *queue_ins(queue *q, void *data, ssize_t max_size) {
 	qelem* tmp = NULL;
 

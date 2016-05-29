@@ -42,7 +42,7 @@ void *queue_unlink(queue *q, qelem *e);
 queue *queue_new(void);
 void queue_free(queue *q, void(*cbfn)(void *data));
 
-inline qelem *queue_prepend(queue *q, void *data) {
+static inline qelem *queue_prepend(queue *q, void *data) {
 	qelem *new;
 
 	if (!q || !data) return(NULL);
@@ -62,7 +62,7 @@ inline qelem *queue_prepend(queue *q, void *data) {
 	return(new);
 }
 
-inline qelem *queue_append(queue *q, void *data) {
+static inline qelem *queue_append(queue *q, void *data) {
 	qelem *new;
 
 	if (!q || !data) return(NULL);
@@ -82,7 +82,7 @@ inline qelem *queue_append(queue *q, void *data) {
 	return(new);
 }
 
-inline qelem *queue_cuthead(queue *q) {
+static inline qelem *queue_cuthead(queue *q) {
 	qelem *tmp;
 
 	if (!q || q->head == NULL) return(NULL);
@@ -96,7 +96,7 @@ inline qelem *queue_cuthead(queue *q) {
 	return(tmp);
 }
 
-inline qelem *queue_cuttail(queue *q) {
+static inline qelem *queue_cuttail(queue *q) {
 	qelem *tmp;
 
 	if (!q || q->tail == NULL) return(NULL);

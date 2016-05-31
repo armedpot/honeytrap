@@ -220,7 +220,7 @@ int logjson(Attack *attack) {
 	}
 
 	logmsg(LOG_DEBUG, 1, "logJSON: logging attacker information...\n");
-	if (fprintf(f, "%s\n\n", json_object_to_json_string(j_log)) < 0) {
+	if (fprintf(f, "%s\n", json_object_to_json_string(j_log)) < 0) {
 		logmsg(LOG_ERR, 1, "logJSON: could not write to log file. %s.\n", strerror(errno));
 		json_object_put(j_log);
 		return -1;

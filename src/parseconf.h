@@ -64,12 +64,19 @@ int lcfg_string_cat_uint(struct lcfg_string *, unsigned int);
 int lcfg_string_find(struct lcfg_string *, char);
 int lcfg_string_rfind(struct lcfg_string *, char);
 void lcfg_string_trunc(struct lcfg_string *, unsigned int);
-inline const char *lcfg_string_cstr(struct lcfg_string *);
-inline unsigned int lcfg_string_len(struct lcfg_string *);
 void lcfg_string_delete(struct lcfg_string *);
 void lcfg_error_set(struct lcfg *c, const char *fmt, ...);
 enum lcfg_status lcfg_accept(struct lcfg *c, lcfg_visitor_function fn, void *user_data);
 void lcfg_delete(struct lcfg *c);
 struct lcfg *parse_config_file(const char *filename);
+
+static inline const char *lcfg_string_cstr(struct lcfg_string *s) {
+	s->str[s->size] = '\0';
+	return s->str;
+}
+
+static inline unsigned int lcfg_string_len(struct lcfg_string *s) {
+	return s->size;
+}
 
 #endif

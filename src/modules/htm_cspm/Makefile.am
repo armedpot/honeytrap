@@ -7,7 +7,7 @@ AM_LDFLAGS = -lpcre
 
 AM_YFLAGS = -d
 
-INCLUDES = -I../../
+AM_CPPFLAGS= -I../../
 
 BUILT_SOURCES = signature_parser.h
 

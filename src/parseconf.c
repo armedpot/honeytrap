@@ -144,14 +144,6 @@ int lcfg_string_cat_char(struct lcfg_string *s, char c) {
 	return s->size;
 }
 
-inline const char *lcfg_string_cstr(struct lcfg_string *s) {
-	s->str[s->size] = '\0';
-	return s->str;
-}
-
-inline unsigned int lcfg_string_len(struct lcfg_string *s) {
-	return s->size;
-}
 
 void lcfg_string_delete(struct lcfg_string *s) {
 	free(s->str);

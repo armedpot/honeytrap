@@ -167,7 +167,12 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 		return -1;
 	}
 
-	j_downloads = json_object_new_array();
+	// XXX The following "download" section is patched in order to avoid using
+	// a JSON array. The outer array has instead been converted to an object,
+	// and an integer suffix has been appended to the inner object keys.
+
+	// j_downloads = json_object_new_array();
+	j_downloads = json_object_new_object();
 	for (d = 0; d < sa->dl_count; ++d) {
 
 		j_download = json_object_new_object();
@@ -178,7 +183,13 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 			return -1;
 		}
 
-		json_object_array_add(j_downloads, j_download);
+		// json_object_array_add(j_downloads, j_download);
+		char key_d[256];
+		json_object_object_foreach(j_download, key, value) {
+			sprintf(key_d, "%s_%i", key, d);
+			json_object_object_add(j_downloads, key_d, value);
+		}
+		json_object_put(j_download);
 
 	}
 

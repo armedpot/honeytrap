@@ -199,7 +199,7 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 	json_object_object_add(ja, "end_time", json_object_new_string(etime));
 	json_object_object_add(ja, "attack_connection", j_attack_c);
 	json_object_object_add(ja, "proxy_connection", j_proxy_c);
-	json_object_object_add(ja, "operation_mode", json_object_new_string(sa->op_mode));
+	json_object_object_add(ja, "operation_mode", json_object_new_int(sa->op_mode));
 	json_object_object_add(ja, "download_count", json_object_new_int(sa->dl_count));
 	json_object_object_add(ja, "download_tries", json_object_new_int(sa->dl_tries));
 	json_object_object_add(ja, "downloads", j_downloads);

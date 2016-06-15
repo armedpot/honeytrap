@@ -147,8 +147,8 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 	char stime[40], etime[40];
 	int d;
 
-	if ((strftime(stime, 40, "%Y-%m-%d %T %Z", localtime(&(sa->start_time))) == 0) || 
-		(strftime(etime, 40, "%Y-%m-%d %T %Z", localtime(&(sa->end_time)))	 == 0)) {
+	if ((strftime(stime, 40, "%FT%TZ", gmtime(&(sa->start_time))) == 0) ||
+		(strftime(etime, 40, "%FT%TZ", gmtime(&(sa->end_time))) == 0)) {
 		logmsg(LOG_ERR, 1, "logJSON: unable to convert attack timestamps.\n");
 		return -1;
 	}
@@ -183,6 +183,7 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 	}
 
 	json_object_object_add(ja, "is_virtual", json_object_new_boolean(sa->virtual));
+	json_object_object_add(ja, "@timestamp", json_object_new_string(stime));
 	json_object_object_add(ja, "start_time", json_object_new_string(stime));
 	json_object_object_add(ja, "end_time", json_object_new_string(etime));
 	json_object_object_add(ja, "attack_connection", j_attack_c);

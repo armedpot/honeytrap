@@ -199,15 +199,6 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 int logjson(Attack *attack) {
 	json_object *j_log;
 	
-	// XXX should we skip empty payload attacks?
-	/*
-	// no data - nothing to do
-	if ((attack->a_conn.payload.size == 0) || (attack->a_conn.payload.data == NULL)) {
-		logmsg(LOG_DEBUG, 1, "logJSON: no data received, nothing to save.\n");
-		return 0;
-	}
-	*/
-
 	j_log = json_object_new_object();
 	if (convert_attack_to_json(attack, j_log) < 0) {
 		logmsg(LOG_ERR, 1, "logJSON: error while converting attack information to JSON.\n");

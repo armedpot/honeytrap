@@ -34,7 +34,7 @@
 
 
 const char module_name[]="logjson";
-const char module_version[]="1.0.0";
+const char module_version[]="1.1.0";
 
 static const char *config_keywords[] = {
 	"logfile",

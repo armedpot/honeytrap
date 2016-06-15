@@ -199,11 +199,6 @@ int convert_attack_to_json(struct s_attack *sa, json_object *ja) {
 int logjson(Attack *attack) {
 	json_object *j_log;
 	
-	// XXX should we skip virtual attacks?
-	/*
-	if (attack->virtual) return 0; // do not log virtual attacks
-	*/
-	
 	// XXX should we skip empty payload attacks?
 	/*
 	// no data - nothing to do

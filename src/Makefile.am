@@ -1,6 +1,6 @@
 AUTOMAKE_OPTIONS=foreign no-dependencies
 
-AM_CFLAGS=-export-dynamic -Wall -Werror -Wno-stringop-truncation -Wno-stringop-overflow
+AM_CFLAGS=-export-dynamic -Wall -Werror -Wno-stringop-truncation -Wno-stringop-overflow -Wno-format-overflow -fcommon
 
 sbin_PROGRAMS = honeytrap
 honeytrap_SOURCES = 	honeytrap.c honeytrap.h \
